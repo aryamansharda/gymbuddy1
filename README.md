@@ -1,4 +1,4 @@
-lab4
+Gym Buddy
 ====
 
-Lab 4: Programming with Javascript
+CSE 170
