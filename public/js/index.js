@@ -15,5 +15,5 @@ function initializePage() {
 }
 
 function register(e) {
-    window.location.href = "register.html";
+    window.location.href = "register";
 }
