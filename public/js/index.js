@@ -15,5 +15,7 @@ function initializePage() {
 }
 
 function register(e) {
+
+	window.alert(document.getElementById("username").value;);	
     window.location.href = "register";
 }
