@@ -1,0 +1,15 @@
+.pageTitle {
+	color: #ffffff;
+	margin-top: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.titleBackground {
+	background-color: #1abc9c;
+}
+
+.pager {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

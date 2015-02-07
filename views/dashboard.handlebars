@@ -17,14 +17,11 @@
   </head>
   <body id="dashboardBody" class="wrapper">
   <!-- this is a comment in HTML -->
+  <div class="titleBackground">
+      <h3 align="center" class="pageTitle">Dashboard</h3>
+   </div>
   <div class="container">
-     <nav>
-      <ul class="pager">
-        <li class="next"><a href="/profile">My Profile <span aria-hidden="true">&rarr;</span></a></li>
-      </ul>
-    </nav>
 
-    <h1 class="pageTitle">Dashboard</h1>
     <style type="text/css">
   .tftable {font-size:12px;color:#fbfbfb;width:100%;border-width: 1px;border-color: #686767;border-collapse: collapse;}
   .tftable th {font-size:12px;background-color:#171515;border-width: 1px;padding: 8px;border-style: solid;border-color: #686767;text-align:left;}
@@ -33,7 +30,7 @@
   .tftable tr:hover {background-color:#171515;}
   </style>
 
-  <h3 class="pageTitle">Your Matches Are...</h3>
+  <h3>Your Matches Are...</h3>
   <table class="tftable" border="1">
   <tr><th><center>My name is...</center><th><center>I'm free to work out at...</center></th></tr>
   <tr><td>John Doe</td><td>3pm @ RIMAC</td></tr>
@@ -47,9 +44,13 @@
   </table>
 
     <br>
-    <a href="/">
-      <button class="btn btn-primary btn-block">Log Out</button>
-    <a>
+    <nav>
+      <ul class="pager">
+        <li class="previous"><a href="/"> Log Out </a></li>
+        <li class="next"><a href="/myprofiles">My Profiles <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+
     <div class="row">
        
     </div>
