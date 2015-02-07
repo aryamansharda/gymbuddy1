@@ -20,19 +20,13 @@ Inc.  * Licensed under http://www.apache.org/licenses/LICENSE-2.0  */
 .color:#e0e0e0;border-color:#dbdbdb}
 
 btn-primary{background-image:-webkit-linear-
-.gradient(top,#1abc9c 0,#1abc9c 100%);background-image:linear-gradient(to
-.bottom,#1abc9c 0,#1abc9c 100%);background-repeat:repeat-x;border-color:#1abc9c;
+.gradient(top,#428bca 0,#2d6ca2 100%);background-image:linear-gradient(to
+.bottom,#428bca 0,#2d6ca2 100%);background-repeat:repeat-x;border-color:#2b669a;
 .filter:progid:DXImageTransformMicrosoftgradient(startColorstr='#ff428bca',endCo
 .lorstr='#ff2d6ca2',GradientType=0);filter:progid:DXImageTransformMicrosoftgradi
-.ent(enabled=false)}
-
-btn-primary:hover,btn-primary:focus{background-color:#1abc9e
-.;background-position:0 -15px}
-
-btn-primary:active,btn-primaryactive{background-
-.color:#2d6ca2;border-color:#1abc9a}
-
-btn-success{background-image:-webkit-linear-
+.ent(enabled=false)}btn-primary:hover,btn-primary:focus{background-color:#2d6ca2
+.;background-position:0 -15px}btn-primary:active,btn-primaryactive{background-
+.color:#2d6ca2;border-color:#2b669a}btn-success{background-image:-webkit-linear-
 .gradient(top,#5cb85c 0,#419641 100%);background-image:linear-gradient(to
 .bottom,#5cb85c 0,#419641 100%);background-repeat:repeat-x;border-color:#3e8f3e;
 .filter:progid:DXImageTransformMicrosoftgradient(startColorstr='#ff5cb85c',endCo
