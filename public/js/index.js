@@ -17,4 +17,5 @@ function initializePage() {
 function register(e) {
     //window.location.href = "register";
     alert("Text: " + $("#username").text());
+    alert("Text: " + $("#pwd").text());
 }
