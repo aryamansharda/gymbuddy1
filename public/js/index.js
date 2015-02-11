@@ -10,24 +10,22 @@ $(document).ready(function() {
  */
 function initializePage() {
     $("#registerButton").click(register);
-
+    $("#loginButton".click(validate));
 }
 
 function register(e) {
-	window.alert(document.getElementById("username").value);
-	window.alert(document.getElementById("pwd").value);
+	window.location.href = "register";
+}
 
-	//window.alert($document.getElementById("username").value);
-	//window.alert($document.getElementById("pwd").value);
-
-	//window.alert("1" + document.getElementById("#username").value);
-	//window.alert("2" + document.getElementById("#pwd").value);
-
-	var dec = document.getElementById("textBox1").value;
+function validate(e)
+{
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("pwd").value;
+	window.alert(username);
 
 	/*if (validateEmail()) {
     	window.location.href = "register";
-	}   */
+	} */ 
 }
 
 //Regex validation
