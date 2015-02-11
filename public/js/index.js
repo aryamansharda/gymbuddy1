@@ -14,6 +14,20 @@ function initializePage() {
 }
 
 function register(e) {
-	window.alert("sometext");
-    window.location.href = "register";
+	window.alert(document.getElementById("username").value);
+	window.alert(document.getElementById("pwd").value);
+
+	window.alert($document.getElementById("username").value);
+	window.alert($document.getElementById("pwd").value);
+
+	window.alert(document.getElementById("#username").value);
+	window.alert(document.getElementById("#pwd").value);
+
+	window.alert($document.getElementById("#username").value);
+	window.alert($document.getElementById("#pwd").value);
+
+	var dec = document.getElementById("textBox1").value;
+	if (strValue) {
+    	window.location.href = "register";
+	}   
 }
