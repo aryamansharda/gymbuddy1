@@ -9,11 +9,11 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	window.alert("sometext");
     $("#registerButton").click(register);
 
 }
 
 function register(e) {
+	window.alert("sometext");
     window.location.href = "register";
 }
