@@ -21,20 +21,23 @@ function validate(e)
 {
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("pwd").value;
-	window.alert("1" + username);
-	window.alert($username);
 
-	/*if (validateEmail()) {
-    	window.location.href = "register";
-	} */ 
+	if (validateEmail(username)) {
+    	if (validatePassword) {
+    		//let the user login
+    	}
+    	else
+    	{
+    		//alert user that password was incorrect. 
+    	}
+	} 
+	else
+	{
+		//alert user
+	}
 }
 
 //Regex validation
-function validateEmail(email) { 
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-} 
-
 function validateUsername(username) { 
     var re = /^[a-z0-9_-]{3,16}$/;
     return re.test(username);
