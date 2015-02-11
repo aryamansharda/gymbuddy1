@@ -17,14 +17,11 @@ function register(e) {
 	//window.alert(document.getElementById("username").value);
 	//window.alert(document.getElementById("pwd").value);
 
-	//window.alert($document.getElementById("username").value);
-	//window.alert($document.getElementById("pwd").value);
+	window.alert($document.getElementById("username").value);
+	window.alert($document.getElementById("pwd").value);
 
-	//window.alert(document.getElementById("#username").value);
-	//window.alert(document.getElementById("#pwd").value);
-
-	window.alert($document.getElementById("#username").value);
-	window.alert($document.getElementById("#pwd").value);
+	window.alert("1" + document.getElementById("#username").value);
+	window.alert("2" + document.getElementById("#pwd").value);
 
 	var dec = document.getElementById("textBox1").value;
 	if (strValue) {
