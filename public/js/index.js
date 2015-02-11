@@ -15,7 +15,7 @@ function initializePage() {
 }
 
 function register(e) {
-	var word = document.getElementById("username").value;
+	var word = document.getElementById("#username").value;
 	alert(escape(word));
     window.location.href = "register";
 }
