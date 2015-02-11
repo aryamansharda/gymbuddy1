@@ -10,7 +10,7 @@ $(document).ready(function() {
  */
 function initializePage() {
     $("#registerButton").click(register);
-    $("#loginButton".click(validate));
+    $("#loginButton").click(validate);
 }
 
 function register(e) {
@@ -21,7 +21,8 @@ function validate(e)
 {
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("pwd").value;
-	window.alert(username);
+	window.alert("1" + username);
+	window.alert($username);
 
 	/*if (validateEmail()) {
     	window.location.href = "register";
