@@ -14,14 +14,14 @@ function initializePage() {
 }
 
 function register(e) {
-	window.alert(document.getElementById("username").value);
-	window.alert(document.getElementById("pwd").value);
+	//window.alert(document.getElementById("username").value);
+	//window.alert(document.getElementById("pwd").value);
 
-	window.alert($document.getElementById("username").value);
-	window.alert($document.getElementById("pwd").value);
+	//window.alert($document.getElementById("username").value);
+	//window.alert($document.getElementById("pwd").value);
 
-	window.alert(document.getElementById("#username").value);
-	window.alert(document.getElementById("#pwd").value);
+	//window.alert(document.getElementById("#username").value);
+	//window.alert(document.getElementById("#pwd").value);
 
 	window.alert($document.getElementById("#username").value);
 	window.alert($document.getElementById("#pwd").value);
