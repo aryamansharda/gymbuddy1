@@ -2,6 +2,10 @@ body {
 	background-color: #ecf0f1;
 }
 
+.container {
+    padding-bottom: 5%;
+}
+
 .pageTitle {
 	color: #ffffff;
 	margin-top: 0px;
@@ -27,7 +31,6 @@ body {
     background: #ffffff;
     border: 0px;
     border-radius: 15px;
-    
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
