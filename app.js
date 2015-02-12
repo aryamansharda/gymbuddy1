@@ -13,6 +13,7 @@ var register = require('./routes/register');
 var dashboard = require('./routes/dashboard');
 var myprofiles = require('./routes/myprofiles');
 var login = require('./routes/login');
+var newUser = require('./routes/newUser');
 
 // Example route
 // var user = require('./routes/user');
@@ -42,6 +43,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/login', login.login);
+app.get('/newUser', newUser.registerNewUser);
 app.get('/register', register.registerNewUser);
 app.get('/dashboard', dashboard.viewDashboard);
 app.get('/myprofiles', myprofiles.viewMyprofiles);

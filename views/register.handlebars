@@ -21,24 +21,23 @@
       <h3 align="center" class="pageTitle">Create New User</h3>
     </div>
 	<div class="container">
+
+<form role="form" action="/newUser" method="get">
     <div class="row">
       <div class="col-md-12">
-        <form role="form">
           <div class="form-group">
             <label class="infolabel" for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+            <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
           </div>
-        </form>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3">
-        <form role="form">
           <div class="form-group">
             <label class="infolabel" for="age">Age:</label>
-            <input type="text" class="form-control" id="age" placeholder="">
+            <input type="text" class="form-control" id="age" placeholder="" name="age">
           </div>
-        </form>
+
       </div>
       <div class="col-xs-9">
         <label for="gender" class="control-label input-group infolabel">Gender:</label>
@@ -54,50 +53,43 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <form role="form">
           <div class="form-group">
             <label class="infolabel" for="contact">Contact:</label>
-            <input type="text" class="form-control" id="contact" placeholder="ex. (xxx) xxx-xxxx">
+            <input type="text" class="form-control" id="contact" placeholder="ex. (xxx) xxx-xxxx" name="contact">
           </div>
-        </form>
       </div>
       <div class="col-md-12">
-        <form role="form">
           <div class="form-group">
             <label class="infolabel" for="newusername">Username:</label>
-            <input type="username" class="form-control" id="newusername" placeholder="Enter username">
+            <input type="username" class="form-control" id="newusername" placeholder="Enter username" name="username">
           </div>
-        </form>
       </div>
       <div class="col-md-12">
-        <form role="form">
           <div class="form-group">
             <label class="infolabel" for="newpassword">Password:</label>
-            <input type="password" class="form-control" id="newpassword" placeholder="Enter password">
+            <input type="password" class="form-control" id="newpassword" placeholder="Enter password" name="password">
           </div>
-        </form>
       </div>
       <div class="col-md-12">
-        <form role="form">
           <div class="form-group">
             <label class="infolabel" for="newpassword2">Re-enter Password:</label>
-            <input type="password" class="form-control" id="newpassword2" placeholder="Re-enter password">
+            <input type="password" class="form-control" id="newpassword2" placeholder="Re-enter password" name="password2">
           </div>
-        </form>
       </div>
-    </div>  
-  
-    <nav>
-      <ul class="pager">
-        <li class="previous"><a href="/"><span aria-hidden="true">&larr;</span> Back</a></li>
-        <li class="next"><a href="/dashboard">Create User <span aria-hidden="true">&rarr;</span></a></li>
-      </ul>
-    </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><button id="backButton" class="btn btn-primary"><span aria-hidden="true">&larr;</span> Back</button></div>
+        <div class="col-md-6" ><span class="pull-right"><button type="submit" class="btn btn-primary" pull-right>Create User <span aria-hidden="true">&rarr;</span></button></span</div>
+    </div>
+
+</form>
   
   </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/register.js"></script>
+
   </body>
 </html>
