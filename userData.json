@@ -1,0 +1,12 @@
+{
+	"userData": [
+		{
+            "name": "Jim Buddy",
+            "age": "21",
+            "gender": "male",
+            "contact": "(123)456-7890",
+			"username": "gym",
+			"password": "buddy"
+		}
+	]
+}

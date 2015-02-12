@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var register = require('./routes/register');
 var dashboard = require('./routes/dashboard');
 var myprofiles = require('./routes/myprofiles');
+var login = require('./routes/login');
 
 // Example route
 // var user = require('./routes/user');
@@ -40,6 +41,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/login', login.login);
 app.get('/register', register.registerNewUser);
 app.get('/dashboard', dashboard.viewDashboard);
 app.get('/myprofiles', myprofiles.viewMyprofiles);

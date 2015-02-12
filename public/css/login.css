@@ -1,0 +1,37 @@
+body {
+    /*border: 1px dotted gray;*/
+    background-color: #ecf0f1;
+}
+
+.loginBox {
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background: #1abc9c;
+    color: #ffffff;
+    border: 0;
+    
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #3cc8ac;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #00aa89;
+    box-shadow: none;
+}
+
+.titleBackground {
+    background-color: #1abc9c;
+}
+
+.pageTitle {
+    color: #ffffff;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

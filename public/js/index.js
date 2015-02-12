@@ -20,7 +20,7 @@ function register(e) {
 function validate(e)
 {
 	var username = document.getElementById("username").value;
-	var password = document.getElementById("pwd").value;
+	var password = document.getElementById("password").value;
 
 	if (validateEmail(username)) {
     	if (validatePassword) {
