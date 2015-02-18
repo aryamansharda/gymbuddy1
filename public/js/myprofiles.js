@@ -37,8 +37,15 @@ function loadModalWithProfile (result) {
 	console.log(liftingskill);
 
 	$('#liftingRangeSelect option[value="' + liftingrange + '"]').prop('selected', true);
-	$("#radio_1").val(true);
+	var radioSelectorLift = "#radio_" + liftingskill + "_lift";
+	var radioLabelSelectorLift = "#radio_" + liftingskill + "_label_lift";
+	$(radioSelectorLift).checked = true;
+	$(radioLabelSelectorLift).addClass("active");
 	$('#runningRangeSelect option[value="' + runningrange + '"]').prop('selected', true);
+	var radioSelectorRun = "#radio_" + runningskill + "_run";
+	var radioLabelSelectorRun = "#radio_" + runningskill + "_label_run";
+	$(radioSelectorRun).checked = true;
+	$(radioLabelSelectorRun).addClass("active");
 
 	$("#montime").val(mondaytime);
 	$("#tuestime").val(tuesdaytime);
