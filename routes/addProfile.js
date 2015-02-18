@@ -1,4 +1,5 @@
 
+var numberOfProfiles = 1;
 var data = require('../userData.json');
 
 exports.addProfile = function(req, res){
@@ -14,10 +15,10 @@ exports.addProfile = function(req, res){
     var fridayTimeValue = req.query.friday_time;
     var saturdayTimeValue = req.query.saturday_time;
     var sundayTimeValue = req.query.sunday_time;
-    console.log(mondayTimeValue);
 
     //TODO error checking on input params
     var newProfile = {
+        "profileNumber":numberOfProfiles,
         "spotter": [
             {
                 "range":liftingRangeValue,
@@ -52,5 +53,6 @@ exports.addProfile = function(req, res){
     }  
 
     newdata["profiles"].push(newProfile);
+    numberOfProfiles = numberOfProfiles + 1;
     res.render('addProfile');
 };

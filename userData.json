@@ -9,15 +9,16 @@
 			"password": "buddy",
 			"profiles": [
 				{
+					"profileNumber":"0",
 					"spotter": [
 						{
-							"range":"60 - 80",
+							"range":"60-80",
 							"skill":"4"
 						}
 					],
 					"running": [
 						{
-							"distance":"3 - 4",
+							"distance":"3-4",
 							"skill":"4"
 						}
 					],

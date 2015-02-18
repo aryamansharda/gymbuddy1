@@ -15,6 +15,7 @@ var myprofiles = require('./routes/myprofiles');
 var login = require('./routes/login');
 var newUser = require('./routes/newUser');
 var addProfile = require('./routes/addProfile');
+var userdata = require('./routes/userdata');
 
 // Example route
 // var user = require('./routes/user');
@@ -49,6 +50,7 @@ app.get('/register', register.registerNewUser);
 app.get('/dashboard', dashboard.viewDashboard);
 app.get('/myprofiles', myprofiles.viewMyprofiles);
 app.get('/addProfile', addProfile.addProfile);
+app.get('/userdata', userdata.userdata);
 
 // Example route
 // app.get('/users', user.list);

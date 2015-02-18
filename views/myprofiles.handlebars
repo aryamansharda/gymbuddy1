@@ -24,24 +24,28 @@
     
     <h4>Active Profiles</h4>
     <table class="tftable" border="1">
-      <tr><th>Activity</th><th>Days</th></tr>
+      <tr><th>#</th><th>Activity</th><th>Days</th></tr>
       {{#each profiles}}
-        <tr>
+        <tr onclick=loadProfileToEdit({{this.profileNumber}}) data-toggle="modal" data-target="#EditProfileModal">
+          <td>{{this.profileNumber}}</td>
           <td>
             SPOTTER<br>
-            {{this.spotter.0.range}} (lbs) , {{this.spotter.0.skill}}<br><br>
+            {{#if this.spotter.0.range}} {{this.spotter.0.range}} (lbs) {{/if}} 
+            {{#if this.spotter.0.skill}} , {{this.spotter.0.skill}} {{/if}}<br><br>
+        
             RUNNING<br>
-            {{this.running.0.distance}} (mi) , {{this.running.0.skill}}
+            {{#if this.running.0.distance}} {{this.running.0.distance}} (mi) {{/if}}
+            {{#if this.running.0.skill}} , {{this.running.0.skill}} {{/if}}
           </td>
           
           <td>
-            {{#if this.schedule.0.monday}}Mon,{{/if}}
-            {{#if this.schedule.0.tuesday}}Tues,{{/if}}
-            {{#if this.schedule.0.wednesday}}Wed,{{/if}}
-            {{#if this.schedule.0.thursday}}Thurs,{{/if}}
-            {{#if this.schedule.0.friday}}Fri,{{/if}}
-            {{#if this.schedule.0.saturday}}Sat,{{/if}}
-            {{#if this.schedule.0.sunday}}Sun{{/if}}
+            {{#if this.schedule.0.monday}}Monday<br>{{/if}}
+            {{#if this.schedule.0.tuesday}}Tuesday<br>{{/if}}
+            {{#if this.schedule.0.wednesday}}Wednesday<br>{{/if}}
+            {{#if this.schedule.0.thursday}}Thursday<br>{{/if}}
+            {{#if this.schedule.0.friday}}Friday<br>{{/if}}
+            {{#if this.schedule.0.saturday}}Saturday<br>{{/if}}
+            {{#if this.schedule.0.sunday}}Sunday<br>{{/if}}
           </td>
 
         </tr>
@@ -55,7 +59,7 @@
       </ul>
     </nav>
 
-    <!-- Modal -->
+    <!-- Add Profile Modal -->
     <div class="modal fade" id="CreateProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -157,12 +161,122 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary" id="addBtn">Add</button>
+              <button type="submit" class="btn btn-primary" id="addBtn">Add Profile</button>
             </div>
           </form>
         </div>
       </div>
     </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="EditProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+          </div>
+          <form role="form" action="/addProfile" method="get">
+            <div class="modal-body">
+              <h4>Bench Press Spotter<h4>
+              <label class="modalLabel" for="LiftingRange">Lifting Range (lbs):</label>
+              <select id="liftingRangeSelect" name="liftingRangeEdit">
+                <option value="N/A">N/A</option>
+                <option value="5-20">5 - 20</option>
+                <option value="20-40">20 - 40</option>
+                <option value="40-60">40 - 60</option>
+                <option value="60-80">60 - 80</option>
+                <option value="80-100">80 - 100</option>
+                <option value="100-120">100 - 120</option>
+                <option value="120-140">120 - 140</option>
+              </select>
+              <br>
+              <label class="modalLabel" for="SkillLevel">Skill Level:</label>
+              <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" value="1">1
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" value="2">2
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" value="3">3
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" value="4">4
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" value="5">5
+                </label>
+              </div>
+              <hr>
+              <h4>Running Buddy<h4>
+              <label class="modalLabel" for="TargetDistance">Target Distance (miles):</label>
+              <select id="runningRangeSelect" name="runningRangeEdit">
+                <option value="N/A">N/A</option>
+                <option value="0-1">0 - 1</option>
+                <option value="1-2">1 - 2</option>
+                <option value="2-3">2 - 3</option>
+                <option value="3-4">3 - 4</option>
+                <option value="4-5">4 - 5</option>
+                <option value="5-6">5 - 6</option>
+                <option value="6-7">6 - 7</option>
+                <option value="7-8">7 - 8</option>
+                <option value="8-9">8 - 9</option>
+                <option value="9-10">9 - 10</option>
+                <option value="10+">10+</option>
+              </select>
+              <br>
+              <label class="modalLabel" for="SkillLevel">Skill Level:</label>
+              <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" value="1">1
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" value="2">2
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" value="3">3
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" value="4">4
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" value="5">5
+                </label>
+              </div>
+              <hr>
+              <h4>Schedule<h4>
+              <label class="modalLabel" for="Monday">Monday:</label>
+              <input id="montime" type="time" name="monday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Tuesday">Tuesday:</label>
+              <input id="tuestime" type="time" name="tuesday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Wednesday">Wednesday:</label>
+              <input id="wedtime" type="time" name="wednesday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Thursday">Thursday:</label>
+              <input id="thurstime" type="time" name="thursday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Friday">Friday:</label>
+              <input id="fritime" type="time" name="friday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Saturday">Saturday:</label>
+              <input id="sattime" type="time" name="saturday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Sunday">Sunday:</label>
+              <input id="suntime" type="time" name="sunday_timeEdit">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="saveBtn">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
