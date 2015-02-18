@@ -20,6 +20,17 @@
 							"distance":"3 - 4",
 							"skill":"4"
 						}
+					],
+					"schedule": [
+						{
+							"monday":"",
+							"tuesday":"",
+							"wednesday":"",
+							"thursday":"",
+							"friday":"",
+							"saturday":"",
+							"sunday":""
+						}
 					]
 				}
 			]

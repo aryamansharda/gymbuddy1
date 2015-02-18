@@ -33,9 +33,17 @@
             RUNNING<br>
             {{this.running.0.distance}} (mi) , {{this.running.0.skill}}
           </td>
+          
+          <td>
+            {{#if this.schedule.0.monday}}Mon,{{/if}}
+            {{#if this.schedule.0.tuesday}}Tues,{{/if}}
+            {{#if this.schedule.0.wednesday}}Wed,{{/if}}
+            {{#if this.schedule.0.thursday}}Thurs,{{/if}}
+            {{#if this.schedule.0.friday}}Fri,{{/if}}
+            {{#if this.schedule.0.saturday}}Sat,{{/if}}
+            {{#if this.schedule.0.sunday}}Sun{{/if}}
+          </td>
 
-
-          <td>Mon, Wed</td>
         </tr>
       {{/each}}      
     </table>
@@ -127,144 +135,25 @@
               <hr>
               <h4>Schedule<h4>
               <label class="modalLabel" for="Monday">Monday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="monday_time">
               <br>
               <label class="modalLabel" for="Tuesday">Tuesday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="tuesday_time">
               <br>
               <label class="modalLabel" for="Wednesday">Wednesday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="wednesday_time">
               <br>
               <label class="modalLabel" for="Thursday">Thursday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="thursday_time">
               <br>
               <label class="modalLabel" for="Friday">Friday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="friday_time">
               <br>
               <label class="modalLabel" for="Saturday">Saturday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="saturday_time">
               <br>
               <label class="modalLabel" for="Sunday">Sunday:</label>
-              <select>
-                <option value="N/A">N/A</option>
-                <option value="8am-9am">8am - 9am</option>
-                <option value="9am-10am">9am - 10am</option>
-                <option value="10am-11am">10am - 11am</option>
-                <option value="11am-12pm">11am - 12pm</option>
-                <option value="12pm-1pm">12pm - 1pm</option>
-                <option value="1pm-2pm">1pm - 2pm</option>
-                <option value="2pm-3pm">2pm - 3pm</option>
-                <option value="3pm-4pm">3pm - 4pm</option>
-                <option value="4pm-5pm">4pm - 5pm</option>
-                <option value="5pm-6pm">5pm - 6pm</option>
-                <option value="7pm-8pm">7pm - 8pm</option>
-                <option value="8pm-9pm">8pm - 9pm</option>
-                <option value="9pm-10pm">9pm - 10pm</option>
-                <option value="10pm-11pm">10pm - 11pm</option>
-                <option value="11pm-12am">11pm - 12am</option>
-              </select>
+              <input type="time" name="sunday_time">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
