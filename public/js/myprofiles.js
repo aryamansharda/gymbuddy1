@@ -22,7 +22,21 @@ function loadProfileToEdit(pNum) {
 }
 
 function loadModalWithProfile (result) {
+
+	//remove class active
+	$("#radio_1_label_lift").removeClass("active");
+	$("#radio_2_label_lift").removeClass("active");
+	$("#radio_3_label_lift").removeClass("active");
+	$("#radio_4_label_lift").removeClass("active");
+	$("#radio_5_label_lift").removeClass("active");
+	$("#radio_1_label_run").removeClass("active");
+	$("#radio_2_label_run").removeClass("active");
+	$("#radio_3_label_run").removeClass("active");
+	$("#radio_4_label_run").removeClass("active");
+	$("#radio_5_label_run").removeClass("active");
+
 	var profile = result.profiles[profileNum];
+	var profileName = profile.profileName;
 	var liftingrange = profile.spotter[0].range;
 	var liftingskill = profile.spotter[0].skill;
 	var runningrange = profile.running[0].distance;
@@ -34,17 +48,18 @@ function loadModalWithProfile (result) {
 	var fridaytime = profile.schedule[0].friday;
 	var saturdaytime = profile.schedule[0].saturday;
 	var sundaytime = profile.schedule[0].sunday;
-	console.log(liftingskill);
 
+	//$('#editModalTitle').text("Edit Profile " + profileNum);
+	$('#profileNameEditID').val(profileName);
 	$('#liftingRangeSelect option[value="' + liftingrange + '"]').prop('selected', true);
 	var radioSelectorLift = "#radio_" + liftingskill + "_lift";
 	var radioLabelSelectorLift = "#radio_" + liftingskill + "_label_lift";
-	$(radioSelectorLift).checked = true;
+	$(radioSelectorLift).prop("checked", true);
 	$(radioLabelSelectorLift).addClass("active");
 	$('#runningRangeSelect option[value="' + runningrange + '"]').prop('selected', true);
 	var radioSelectorRun = "#radio_" + runningskill + "_run";
 	var radioLabelSelectorRun = "#radio_" + runningskill + "_label_run";
-	$(radioSelectorRun).checked = true;
+	$(radioSelectorRun).prop("checked", true);
 	$(radioLabelSelectorRun).addClass("active");
 
 	$("#montime").val(mondaytime);

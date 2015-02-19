@@ -4,6 +4,7 @@ var data = require('../userData.json');
 
 exports.addProfile = function(req, res){
     //res.render('login');
+    var profileName = req.query.profileName;
     var liftingRangeValue = req.query.liftingRange; 
     var liftingSkillValue = req.query.liftingskill;
     var runningRangeValue = req.query.runningRange;
@@ -19,6 +20,7 @@ exports.addProfile = function(req, res){
     //TODO error checking on input params
     var newProfile = {
         "profileNumber":numberOfProfiles,
+        "profileName":profileName,
         "spotter": [
             {
                 "range":liftingRangeValue,

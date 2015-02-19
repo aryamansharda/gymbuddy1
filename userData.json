@@ -10,6 +10,7 @@
 			"profiles": [
 				{
 					"profileNumber":"0",
+					"profileName":"dev",
 					"spotter": [
 						{
 							"range":"60-80",

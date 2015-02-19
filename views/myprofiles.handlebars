@@ -63,12 +63,15 @@
     <div class="modal fade" id="CreateProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Add Profile</h4>
-          </div>
           <form role="form" action="/addProfile" method="get">
-            <div class="modal-body">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add Profile</h4>
+            </div>
+            <div class="modal-body">  
+              <label class="modalLabel" for="ProfileName">Profile Name:</label>
+              <input name="profileName" type="text" class="form-control" placeholder="Name your profile">
+              <hr>
               <h4>Bench Press Spotter<h4>
               <label class="modalLabel" for="LiftingRange">Lifting Range (lbs):</label>
               <select class="form-control" name="liftingRange">
@@ -172,12 +175,15 @@
     <div class="modal fade" id="EditProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
-          </div>
-          <form role="form" action="/addProfile" method="get">
+          <form role="form" action="/saveProfile" method="get">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="editModalTitle">Edit Profile</h4>
+            </div>
             <div class="modal-body">
+              <label class="modalLabel" for="ProfileNameEdit">Profile Name:</label>
+              <input name="profileNameEdit" id="profileNameEditID" type="text" class="form-control" placeholder="Name your profile">
+              <hr>
               <h4>Bench Press Spotter<h4>
               <label class="modalLabel" for="LiftingRange">Lifting Range (lbs):</label>
               <select class="form-control" id="liftingRangeSelect" name="liftingRangeEdit">
