@@ -22,14 +22,6 @@
    </div>
   <div class="container">
 
-    <style type="text/css">
-  .tftable {font-size:12px;color:#fbfbfb;width:100%;border-width: 1px;border-color: #686767;border-collapse: collapse;}
-  .tftable th {font-size:12px;background-color:#171515;border-width: 1px;padding: 8px;border-style: solid;border-color: #686767;text-align:left;}
-  .tftable tr {background-color:#2f2f2f;}
-  .tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #686767;}
-  .tftable tr:hover {background-color:#171515;}
-  </style>
-
   <h3>Your Matches Are...</h3>
   <table class="tftable" border="1">
   <tr><th><center>My name is...</center><th><center>I'm free to work out at...</center></th></tr>
@@ -44,20 +36,17 @@
   </table>
 
     <br>
-    <nav>
-      <ul class="pager">
-        <li class="previous"><a href="/"> Log Out </a></li>
-        <li class="next"><a href="/myprofiles">My Profiles <span aria-hidden="true">&rarr;</span></a></li>
-      </ul>
-    </nav>
 
-    <div class="row">
-       
-    </div>
+<div class="row">
+<div class="col-md-12"><button id="logoutButton" class="btn btn-primary">Log Out</button>
+<span class="pull-right"><button id="myprofilesButton" class="btn btn-primary" pull-right>My Profiles <span aria-hidden="true">&rarr;</span></button></span></div>
+</div>
   </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/dashboard.js"></script>
+
   </body>
 </html>
