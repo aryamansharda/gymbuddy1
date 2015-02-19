@@ -6,7 +6,36 @@
             "gender": "male",
             "contact": "(123)456-7890",
 			"username": "gym",
-			"password": "buddy"
+			"password": "buddy",
+			"profiles": [
+				{
+					"profileNumber":"0",
+					"profileName":"dev",
+					"spotter": [
+						{
+							"range":"60-80",
+							"skill":"4"
+						}
+					],
+					"running": [
+						{
+							"distance":"3-4",
+							"skill":"4"
+						}
+					],
+					"schedule": [
+						{
+							"monday":"",
+							"tuesday":"",
+							"wednesday":"",
+							"thursday":"",
+							"friday":"",
+							"saturday":"",
+							"sunday":""
+						}
+					]
+				}
+			]
 		}
 	]
 }

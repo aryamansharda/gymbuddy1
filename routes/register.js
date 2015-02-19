@@ -1,4 +1,4 @@
 exports.registerNewUser = function (req, res) {
-	console.log("registerNewUser");
+	console.log("register.registerNewUser");
 	res.render('register');
 }

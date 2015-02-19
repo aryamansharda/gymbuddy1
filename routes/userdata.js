@@ -1,6 +1,6 @@
 var data = require('../userData.json');
-exports.viewMyprofiles = function (req, res) {
-	console.log("myprofiles.viewMyprofiles");
+exports.userdata = function (req, res) {
+	console.log("userdata.userdata");
 	var i
     for (i = 0; i < data["userData"].length; i++) {
         if (data["userData"][i].username == "gym") {
@@ -8,5 +8,5 @@ exports.viewMyprofiles = function (req, res) {
         	break;
         }           
     }   
-	res.render('myprofiles', newdata);
+	res.json(newdata);
 }

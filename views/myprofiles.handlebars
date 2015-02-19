@@ -24,10 +24,32 @@
     
     <h4>Active Profiles</h4>
     <table class="tftable" border="1">
-    <tr><th>Activity</th><th>Days</th><th>Time</th></tr>
-    <tr><td>Spotter</td><td>Mon, Wed</td><td>1pm - 3pm</td></tr>
-    <tr><td>Spotter, Running</td><td>Tue, Thu</td><td>5pm - 6pm</td></tr>
-    <tr><td>Running</td><td>Sun, Wed, Fri</td><td>8am - 9am</td></tr>
+      <tr><th>#</th><th>Activity</th><th>Days</th></tr>
+      {{#each profiles}}
+        <tr onclick=loadProfileToEdit({{this.profileNumber}}) data-toggle="modal" data-target="#EditProfileModal">
+          <td>{{this.profileNumber}}</td>
+          <td>
+            SPOTTER<br>
+            {{#if this.spotter.0.range}} {{this.spotter.0.range}} (lbs) {{/if}} 
+            {{#if this.spotter.0.skill}} , {{this.spotter.0.skill}} {{/if}}<br><br>
+        
+            RUNNING<br>
+            {{#if this.running.0.distance}} {{this.running.0.distance}} (mi) {{/if}}
+            {{#if this.running.0.skill}} , {{this.running.0.skill}} {{/if}}
+          </td>
+          
+          <td>
+            {{#if this.schedule.0.monday}}Monday<br>{{/if}}
+            {{#if this.schedule.0.tuesday}}Tuesday<br>{{/if}}
+            {{#if this.schedule.0.wednesday}}Wednesday<br>{{/if}}
+            {{#if this.schedule.0.thursday}}Thursday<br>{{/if}}
+            {{#if this.schedule.0.friday}}Friday<br>{{/if}}
+            {{#if this.schedule.0.saturday}}Saturday<br>{{/if}}
+            {{#if this.schedule.0.sunday}}Sunday<br>{{/if}}
+          </td>
+
+        </tr>
+      {{/each}}      
     </table>
     <br>
 
@@ -40,248 +62,236 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Add Profile Modal -->
     <div class="modal fade" id="CreateProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel" align="center"><b>Add Profile</b></h4>
-          </div>
-          <div class="modal-body">
-            <form role="form" action="/myprofiles" method="get">
-            <h4>Bench Press Spotter<h4>
-            <label class="modalLabel" for="LiftingRange">Lifting Range (lbs):</label>
-            <select name="liftRange">
-              <option value="N/A">N/A</option>
-              <option value="0-20">5 - 20</option>
-              <option value="20-40">20 - 40</option>
-              <option value="40-60">40 - 60</option>
-              <option value="60-80">60 - 80</option>
-              <option value="80-100">80 - 100</option>
-              <option value="100-120">100 - 120</option>
-              <option value="120-140">120 - 140</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="SkillLevel">Skill Level:</label>
-            <div class="btn-group btn-group-justified" data-toggle="buttons">
-              <label class="btn btn-default">
-                <input type="radio" name="liftSkill" value="1">1
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="liftSkill" value="2">2
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="liftSkill" value="3">3
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="liftSkill" value="4">4
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="liftSkill" value="5">5
-              </label>
+          <form role="form" action="/addProfile" method="get">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add Profile</h4>
             </div>
-            <hr>
-            <h4>Running Buddy<h4>
-            <label class="modalLabel" for="TargetDistance">Target Distance (miles):</label>
-            <select name = "targetDistance">
-              <option value="N/A">N/A</option>
-              <option value="0-1">0 - 1</option>
-              <option value="1-2">1 - 2</option>
-              <option value="2-3">2 - 3</option>
-              <option value="3-4">3 - 4</option>
-              <option value="4-5">4 - 5</option>
-              <option value="5-6">5 - 6</option>
-              <option value="6-7">6 - 7</option>
-              <option value="7-8">7 - 8</option>
-              <option value="8-9">8 - 9</option>
-              <option value="9-10">9 - 10</option>
-              <option value="10+">10+</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="SkillLevel">Skill Level:</label>
-            <div class="btn-group btn-group-justified" data-toggle="buttons">
-              <label class="btn btn-default">
-                <input type="radio" name="runningSkill" value="1">1
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="runningSkill" value="2">2
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="runningSkill" value="3">3
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="runningSkill" value="4">4
-              </label>
-              <label class="btn btn-default">
-                <input type="radio" name="runningSkill" value="5">5
-              </label>
+            <div class="modal-body">  
+              <label class="modalLabel" for="ProfileName">Profile Name:</label>
+              <input name="profileName" type="text" class="form-control" placeholder="Name your profile">
+              <hr>
+              <h4>Bench Press Spotter<h4>
+              <label class="modalLabel" for="LiftingRange">Lifting Range (lbs):</label>
+              <select class="form-control" name="liftingRange">
+                <option value="N/A">N/A</option>
+                <option value="5-20">5 - 20</option>
+                <option value="20-40">20 - 40</option>
+                <option value="40-60">40 - 60</option>
+                <option value="60-80">60 - 80</option>
+                <option value="80-100">80 - 100</option>
+                <option value="100-120">100 - 120</option>
+                <option value="120-140">120 - 140</option>
+              </select>
+              <br>
+              <label class="modalLabel" for="SkillLevel">Skill Level:</label>
+              <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskill" value="1">1
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskill" value="2">2
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskill" value="3">3
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskill" value="4">4
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="liftingskill" value="5">5
+                </label>
+              </div>
+              <hr>
+              <h4>Running Buddy<h4>
+              <label class="modalLabel" for="TargetDistance">Target Distance (miles):</label>
+              <select class="form-control" name="runningRange">
+                <option value="N/A">N/A</option>
+                <option value="0-1">0 - 1</option>
+                <option value="1-2">1 - 2</option>
+                <option value="2-3">2 - 3</option>
+                <option value="3-4">3 - 4</option>
+                <option value="4-5">4 - 5</option>
+                <option value="5-6">5 - 6</option>
+                <option value="6-7">6 - 7</option>
+                <option value="7-8">7 - 8</option>
+                <option value="8-9">8 - 9</option>
+                <option value="9-10">9 - 10</option>
+                <option value="10+">10+</option>
+              </select>
+              <br>
+              <label class="modalLabel" for="SkillLevel">Skill Level:</label>
+              <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskill" value="1">1
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskill" value="2">2
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskill" value="3">3
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskill" value="4">4
+                </label>
+                <label class="btn btn-default">
+                  <input type="radio" name="runningskill" value="5">5
+                </label>
+              </div>
+              <hr>
+              <h4>Schedule<h4>
+              <label class="modalLabel" for="Monday">Monday:</label>
+              <input type="time" name="monday_time">
+              <br>
+              <label class="modalLabel" for="Tuesday">Tuesday:</label>
+              <input type="time" name="tuesday_time">
+              <br>
+              <label class="modalLabel" for="Wednesday">Wednesday:</label>
+              <input type="time" name="wednesday_time">
+              <br>
+              <label class="modalLabel" for="Thursday">Thursday:</label>
+              <input type="time" name="thursday_time">
+              <br>
+              <label class="modalLabel" for="Friday">Friday:</label>
+              <input type="time" name="friday_time">
+              <br>
+              <label class="modalLabel" for="Saturday">Saturday:</label>
+              <input type="time" name="saturday_time">
+              <br>
+              <label class="modalLabel" for="Sunday">Sunday:</label>
+              <input type="time" name="sunday_time">
             </div>
-            <hr>
-            <h4>Schedule<h4>
-            <label class="modalLabel" for="Monday">Monday:</label>
-            <select name="Monday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="Tuesday">Tuesday:</label>
-            <select name="Tuesday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="Wednesday">Wednesday:</label>
-            <select name="Wednesday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="Thursday">Thursday:</label>
-            <select name="Thursday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="Friday">Friday:</label>
-            <select name="Friday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="Saturday">Saturday:</label>
-            <select name="Saturday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-            <br>
-            <label class="modalLabel" for="Sunday">Sunday:</label>
-            <select name="Sunday">
-              <option value="N/A">N/A</option>
-              <option value="8am-9am">8am - 9am</option>
-              <option value="9am-10am">9am - 10am</option>
-              <option value="10am-11am">10am - 11am</option>
-              <option value="11am-12pm">11am - 12pm</option>
-              <option value="12pm-1pm">12pm - 1pm</option>
-              <option value="1pm-2pm">1pm - 2pm</option>
-              <option value="2pm-3pm">2pm - 3pm</option>
-              <option value="3pm-4pm">3pm - 4pm</option>
-              <option value="4pm-5pm">4pm - 5pm</option>
-              <option value="5pm-6pm">5pm - 6pm</option>
-              <option value="7pm-8pm">7pm - 8pm</option>
-              <option value="8pm-9pm">8pm - 9pm</option>
-              <option value="9pm-10pm">9pm - 10pm</option>
-              <option value="10pm-11pm">10pm - 11pm</option>
-              <option value="11pm-12am">11pm - 12am</option>
-            </select>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary" pull-right>Add</button>
-          </div>
-        </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="addBtn">Add Profile</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
 
-
-
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="EditProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form role="form" action="/saveProfile" method="get">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="editModalTitle">Edit Profile</h4>
+            </div>
+            <div class="modal-body">
+              <label class="modalLabel" for="ProfileNameEdit">Profile Name:</label>
+              <input name="profileNameEdit" id="profileNameEditID" type="text" class="form-control" placeholder="Name your profile">
+              <hr>
+              <h4>Bench Press Spotter<h4>
+              <label class="modalLabel" for="LiftingRange">Lifting Range (lbs):</label>
+              <select class="form-control" id="liftingRangeSelect" name="liftingRangeEdit">
+                <option value="N/A">N/A</option>
+                <option value="5-20">5 - 20</option>
+                <option value="20-40">20 - 40</option>
+                <option value="40-60">40 - 60</option>
+                <option value="60-80">60 - 80</option>
+                <option value="80-100">80 - 100</option>
+                <option value="100-120">100 - 120</option>
+                <option value="120-140">120 - 140</option>
+              </select>
+              <br>
+              <label class="modalLabel" for="SkillLevel">Skill Level:</label>
+              <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label id="radio_1_label_lift" class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" id="radio_1_lift" value="1">1
+                </label>
+                <label id="radio_2_label_lift" class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" id="radio_2_lift" value="2">2
+                </label>
+                <label id="radio_3_label_lift" class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" id="radio_3_lift" value="3">3
+                </label>
+                <label id="radio_4_label_lift" class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" id="radio_4_lift" value="4">4
+                </label>
+                <label id="radio_5_label_lift" class="btn btn-default">
+                  <input type="radio" name="liftingskillEdit" id="radio_5_lift" value="5">5
+                </label>
+              </div>
+              <hr>
+              <h4>Running Buddy<h4>
+              <label class="modalLabel" for="TargetDistance">Target Distance (miles):</label>
+              <select class="form-control" id="runningRangeSelect" name="runningRangeEdit">
+                <option value="N/A">N/A</option>
+                <option value="0-1">0 - 1</option>
+                <option value="1-2">1 - 2</option>
+                <option value="2-3">2 - 3</option>
+                <option value="3-4">3 - 4</option>
+                <option value="4-5">4 - 5</option>
+                <option value="5-6">5 - 6</option>
+                <option value="6-7">6 - 7</option>
+                <option value="7-8">7 - 8</option>
+                <option value="8-9">8 - 9</option>
+                <option value="9-10">9 - 10</option>
+                <option value="10+">10+</option>
+              </select>
+              <br>
+              <label class="modalLabel" for="SkillLevel">Skill Level:</label>
+              <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label id="radio_1_label_run" class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" id="radio_1_run" value="1">1
+                </label>
+                <label id="radio_2_label_run" class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" id="radio_2_run" value="2">2
+                </label>
+                <label id="radio_3_label_run" class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" id="radio_3_run" value="3">3
+                </label>
+                <label id="radio_4_label_run" class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" id="radio_4_run" value="4">4
+                </label>
+                <label id="radio_5_label_run" class="btn btn-default">
+                  <input type="radio" name="runningskillEdit" id="radio_5_run" value="5">5
+                </label>
+              </div>
+              <hr>
+              <h4>Schedule<h4>
+              <label class="modalLabel" for="Monday">Monday:</label>
+              <input id="montime" type="time" name="monday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Tuesday">Tuesday:</label>
+              <input id="tuestime" type="time" name="tuesday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Wednesday">Wednesday:</label>
+              <input id="wedtime" type="time" name="wednesday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Thursday">Thursday:</label>
+              <input id="thurstime" type="time" name="thursday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Friday">Friday:</label>
+              <input id="fritime" type="time" name="friday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Saturday">Saturday:</label>
+              <input id="sattime" type="time" name="saturday_timeEdit">
+              <br>
+              <label class="modalLabel" for="Sunday">Sunday:</label>
+              <input id="suntime" type="time" name="sunday_timeEdit">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="saveBtn">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
   </div>
-
-
-  
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/myprofiles.js"></script>
-
   </body>
 </html>
