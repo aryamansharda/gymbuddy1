@@ -15,8 +15,10 @@ exports.login = function(req, res){
     {
         if (data["userData"][i].username == username &&
             data["userData"][i].password == password)
+        {
             valid = {"valid":true};
-    }        
+        }
+    }
 
     res.render('login',valid);
 };
