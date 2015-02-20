@@ -7,6 +7,7 @@ exports.viewMyprofiles = function (req, res) {
         	var newdata = data["userData"][i];
         	break;
         }           
-    }   
+    }
+    console.log(newdata);
 	res.render('myprofiles', newdata);
 }
