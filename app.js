@@ -17,6 +17,7 @@ var newUser = require('./routes/newUser');
 var addProfile = require('./routes/addProfile');
 var userdata = require('./routes/userdata');
 var saveProfile = require('./routes/saveProfile');
+var deleteProfile = require('./routes/deleteProfile');
 var help = require('./routes/help');
 
 // Example route
@@ -54,6 +55,7 @@ app.get('/myprofiles', myprofiles.viewMyprofiles);
 app.get('/addProfile', addProfile.addProfile);
 app.get('/userdata', userdata.userdata);
 app.get('/saveProfile', saveProfile.saveProfile);
+app.get('/deleteProfile', deleteProfile.deleteProfile);
 app.get('/help',help.viewHelp);
 
 // Example route

@@ -13,7 +13,8 @@ $(document).ready(function() {
  */
 function initializePage() {
     $("#backButton").click(projectClick);
-    
+    $("#delBtn").click(delProfile);
+
     var name = "gymBuddyUser=";
     var ca = document.cookie.split(';');
     for(var i=0; i<ca.length; i++) {
@@ -22,6 +23,10 @@ function initializePage() {
         if (!c.indexOf(name) == 0)
             window.location.href = "/";
     }
+}
+
+function delProfile() {
+	$(this).parent().parent().attr("action", "/deleteProfile");
 }
 
 function projectClick(e) {
