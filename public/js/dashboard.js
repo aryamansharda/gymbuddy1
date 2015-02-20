@@ -12,6 +12,7 @@ function initializePage() {
     // Add any additional listeners here
     // example: $("#div-id").click(functionToCall);
     $("#logoutButton").click(logout);
+    $("#helpButton").click(help);
     $("#myprofilesButton").click(myProfile);
     
     var name = "gymBuddyUser=";
@@ -35,4 +36,9 @@ function myProfile(e) {
     // Cancel the default action, which prevents the page from reloading
     e.preventDefault();
     window.location.href = "/myprofiles";
+}
+function help(e) {
+    // Cancel the default action, which prevents the page from reloading
+    e.preventDefault();
+    window.location.href = "/help";
 }

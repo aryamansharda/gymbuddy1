@@ -17,6 +17,7 @@ var newUser = require('./routes/newUser');
 var addProfile = require('./routes/addProfile');
 var userdata = require('./routes/userdata');
 var saveProfile = require('./routes/saveProfile');
+var help = require('./routes/help');
 
 // Example route
 // var user = require('./routes/user');
@@ -53,6 +54,7 @@ app.get('/myprofiles', myprofiles.viewMyprofiles);
 app.get('/addProfile', addProfile.addProfile);
 app.get('/userdata', userdata.userdata);
 app.get('/saveProfile', saveProfile.saveProfile);
+app.get('/help',help.viewHelp);
 
 // Example route
 // app.get('/users', user.list);

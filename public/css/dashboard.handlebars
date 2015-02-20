@@ -22,32 +22,24 @@
    </div>
   <div class="container">
 
-  <div class="row">
-  <div class="pull-right"><button id="helpButton" class="btn btn-primary">Help</button>
-  </div>
-
   <h3>Your Matches Are...</h3>
   <table class="tftable" border="1">
   <tr><th><center>My name is...</center><th><center>I'm free to work out at...</center></th></tr>
-    {{#each userProfile}}
-        <tr><td>{{name}}</td>
-<td>{{#if profile.schedule.0.monday}} Monday @ {{profile.schedule.0.monday}}<br>{{/if}}
-    {{#if profile.schedule.0.tuesday}} Tuesday @ {{profile.schedule.0.tuesday}}<br>{{/if}}
-    {{#if profile.schedule.0.wednesday}} Wednesday @ {{profile.schedule.0.wednesday}}<br>{{/if}}
-    {{#if profile.schedule.0.thursday}} Thursday @ {{profile.schedule.0.thursday}}<br>{{/if}}
-    {{#if profile.schedule.0.friday}} Friday @ {{profile.schedule.0.friday}}<br>{{/if}}
-    {{#if profile.schedule.0.saturday}} Saturday @ {{profile.schedule.0.saturday}}<br>{{/if}}
-    {{#if profile.schedule.0.sunday}} Sunday @ {{profile.schedule.0.sunday}}<br>{{/if}}
-
-        </td></tr>
-    {{/each}}
-
+  <tr><td>John Doe</td><td>3pm @ RIMAC</td></tr>
+  <tr><td>Nikhil Rashinkar</td><td>5am @ RIMAC</td></tr>
+  <tr><td>Austin Tran</td><td>9pm @ MAIN GYM</td></tr>
+  <tr><td>Jane Doe</td><td>5:45 @ CANYON VIEW</td></tr>
+  <tr><td>Bill Gates</td><td>5:45 @ RIMAC</td></tr>
+  <tr><td>Steve Jobs</td><td>5:45 @ RIMAC</td></tr>
+  <tr><td>Steve Wozniak</td><td>5:45 @ 24 HOUR FITNESS</td></tr>
+  <tr><td>Paul Allen</td><td>5:45 @ RIMAC</td></tr>
   </table>
 
     <br>
 
 <div class="row">
 <div class="col-md-12"><button id="logoutButton" class="btn btn-primary">Log Out</button>
+<div class="col-md-12"><button id="helpButton" class="btn btn-primary">Help & About Us</button>
 <span class="pull-right"><button id="myprofilesButton" class="btn btn-primary" pull-right>My Profiles <span aria-hidden="true">&rarr;</span></button></span></div>
 </div>
   </div>
