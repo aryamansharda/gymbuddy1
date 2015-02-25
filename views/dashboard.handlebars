@@ -15,28 +15,48 @@
     <![endif]-->
   </head>
   <body id="dashboardBody" class="wrapper">
-  <!-- this is a comment in HTML -->
-  <div class="titleBackground">
-      <h3 align="center" class="pageTitle">Dashboard</h3>
-   </div>
-  <div class="container">
+    <!-- this is a comment in HTML -->
+    <div class="titleBackground">
+        <h3 align="center" class="pageTitle">Dashboard</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-right">
+            <button id="helpButton" class="btn btn-primary">Help</button>
+          </div>
+        </div>
+      </div>  
+      <h3>Your Matches Are...</h3>
+      <table class="tftable" border="1">
+      </table>
+      <br>
+      <div class="row">
+        <div class="col-md-12"><button id="logoutButton" class="btn btn-primary">Log Out</button>
+          <span class="pull-right"><button id="myprofilesButton" class="btn btn-primary" pull-right>My Profiles <span aria-hidden="true">&rarr;</span></button></span>
+        </div>
+      </div>
 
-  <div class="row">
-  <div class="pull-right"><button id="helpButton" class="btn btn-primary">Help</button>
-  </div>
+      <!-- Match Info Modal -->
+      <div class="modal fade" id="MatchInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="MatchInfoModalTitle">Match Information</h4>
+            </div>
+            <div class="modal-body">
+              <h3>Testing SMS</h3>
+              <a href="sms:4086490550 ?body=HCI">SMS</a>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h3>Your Matches Are...</h3>
-  <table class="tftable" border="1">
-  
-  </table>
 
-    <br>
-
-<div class="row">
-<div class="col-md-12"><button id="logoutButton" class="btn btn-primary">Log Out</button>
-<span class="pull-right"><button id="myprofilesButton" class="btn btn-primary" pull-right>My Profiles <span aria-hidden="true">&rarr;</span></button></span></div>
-</div>
-  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
