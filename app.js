@@ -6,7 +6,9 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
+var handlebars = require('express3-handlebars');
+var mongoose = require('mongoose');
+
 
 var index = require('./routes/index');
 var register = require('./routes/register');
@@ -22,6 +24,11 @@ var help = require('./routes/help');
 
 // Example route
 // var user = require('./routes/user');
+
+var local_database_name = 'gymbuddy';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+mongoose.connect(database_uri);
 
 var app = express();
 
@@ -51,6 +58,7 @@ app.get('/login', login.login);
 app.get('/newUser', newUser.registerNewUser);
 app.get('/register', register.registerNewUser);
 app.get('/dashboard', dashboard.viewDashboard);
+app.get('/dashboard/:username', dashboard.viewMatches);
 app.get('/myprofiles', myprofiles.viewMyprofiles);
 app.get('/addProfile', addProfile.addProfile);
 app.get('/userdata', userdata.userdata);

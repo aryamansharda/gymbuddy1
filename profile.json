@@ -1,0 +1,17 @@
+[
+    {
+        "username": "act",
+        "profileName": "dev",
+        "spottingRange" : "60-80",
+        "spottingSkill": 4,
+        "runningRange" : "3-4",
+        "runningSkill" : 4,
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": "6:15",
+        "sunday": ""
+    }
+]

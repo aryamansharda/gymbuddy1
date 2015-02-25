@@ -15,26 +15,19 @@ exports.User = Mongoose.model('User', userSchema);
 
 var profileSchema = new Mongoose.Schema({
                                      // fields are defined here
-                                     "name": String,
+                                     "username": String,
                                      "profileName": String,
                                      "spottingRange": String,
                                      "spottingSkill": Number,
                                      "runningRange": String,
                                      "runningSkill": Number,
-                                     "MondayStart": Time,
-                                     "MondayEnd": Time,
-                                     "TuesdayStart": Time,
-                                     "TuesdayEnd": Time,
-                                     "WednesdayStart": Time,
-                                     "WednesdayEnd": Time,
-                                     "ThursdayStart": Time,
-                                     "ThursdayEnd": Time,
-                                     "FridayStart": Time,
-                                     "FridayEnd": Time,
-                                     "SaturdayStart": Time,
-                                     "FridayEnd": Time,
-                                     "SundayStart": Time,
-                                     "SaturdayEnd": Time
+                                     "monday": String,
+                                     "tuesday": String,
+                                     "wednesday": String,
+                                     "thursday": String,
+                                     "friday": String,
+                                     "saturday": String,
+                                     "sunday": String
 });
 
 exports.Profile = Mongoose.model('Profile', profileSchema);

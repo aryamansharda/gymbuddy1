@@ -2,7 +2,8 @@
 /*
  * GET home page.
  */
-var data = require('../userData.json');
+//var data = require('../userData.json');
+var models = require('../models');
 
 exports.registerNewUser = function(req, res){
     var name = req.query.name;
@@ -13,20 +14,33 @@ exports.registerNewUser = function(req, res){
     var password = req.query.password;
     var password2 = req.query.password2;
     var valid = {"valid":false};
-
-    console.log(gender);
     
     if (name != "" && age != "" && (gender == "male" || gender == "female") && contact != "" && username != "" && password != "" && password == password2)
     {
         valid = {"valid":true};
-        var newUser = {"name":name,
+        /*var newUser = {"name":name,
                         "age":age,
                         "gender":gender,
                         "contact":contact,
                         "username":username,
                         "password":password,
                         "profiles":[]};
-        data["userData"].push(newUser);
+        data["userData"].push(newUser);*/
+        var newPost = new models.User({
+                                         "name": name,
+                                         "age": age,
+                                         "gender": gender,
+                                         "contact": contact,
+                                         "username": username,
+                                         "password": password
+                                         });
+        newPost.save(afterSaving);
+        
+        function afterSaving(err) {
+            if(err) console.log(err);
+            res.render('newUser', valid);
+        }
     }
-    res.render('newUser',valid);
+    else
+        res.render('newUser',valid);
 };
