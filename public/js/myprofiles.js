@@ -1,7 +1,7 @@
 
 'use strict';
 
-var profileNum;
+var global_pNum;
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -26,7 +26,9 @@ function initializePage() {
 }
 
 function delProfile() {
-	$(this).parent().parent().attr("action", "/deleteProfile");
+	if (confirm("Are you sure you want to delete this profile?")) {
+		$(this).parent().parent().attr("action", "/deleteProfile");
+	}
 }
 
 function projectClick(e) {
@@ -36,7 +38,7 @@ function projectClick(e) {
 }
 
 function loadProfileToEdit(pNum) {
-	profileNum = pNum;
+	global_pNum = pNum;
 	$.get('/userdata', loadModalWithProfile);
 	
 	//window.location.href = "myprofiles";
@@ -56,7 +58,16 @@ function loadModalWithProfile (result) {
 	$("#radio_4_label_run").removeClass("active");
 	$("#radio_5_label_run").removeClass("active");
 
-	var profile = result.profiles[profileNum];
+
+	var j;
+    for (j = 0; j < result.profiles.length; j++) {
+        if (result.profiles[j].profileNumber == global_pNum) {
+            var profileSpecificData = result.profiles[j];
+            break;
+        }           
+    }  
+
+	var profile = profileSpecificData;
 	var profileName = profile.profileName;
 	var liftingrange = profile.spotter[0].range;
 	var liftingskill = profile.spotter[0].skill;

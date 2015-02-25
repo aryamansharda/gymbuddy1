@@ -8,6 +8,6 @@ exports.viewMyprofiles = function (req, res) {
         	break;
         }           
     }
-    console.log(newdata);
+    //console.log(newdata);
 	res.render('myprofiles', newdata);
 }
