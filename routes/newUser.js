@@ -27,13 +27,13 @@ exports.registerNewUser = function(req, res){
                         "profiles":[]};
         data["userData"].push(newUser);*/
         var newPost = new models.User({
-                                         "name": name,
-                                         "age": age,
-                                         "gender": gender,
-                                         "contact": contact,
-                                         "username": username,
-                                         "password": password
-                                         });
+            "name": name,
+            "age": age,
+            "gender": gender,
+            "contact": contact,
+            "username": username,
+            "password": password
+        });
         newPost.save(afterSaving);
         
         function afterSaving(err) {

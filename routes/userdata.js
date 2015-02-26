@@ -1,12 +1,15 @@
-var data = require('../userData.json');
+var models = require('../models');
+
 exports.userdata = function (req, res) {
 	console.log("userdata.userdata");
-	var i
-    for (i = 0; i < data["userData"].length; i++) {
-        if (data["userData"][i].username == "gym") {
-        	var newdata = data["userData"][i];
-        	break;
-        }           
-    }   
-	res.json(newdata);
+	var usrname = req.params.username;
+	
+	models.User
+	.find()
+	.where({"username":usrname})
+	.exec(renderUserData);
+
+	function renderUserData(err, userData) {
+		res.json(userData);
+	}
 }

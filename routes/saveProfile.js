@@ -66,9 +66,9 @@ exports.save = function(req, res) {
         "friday":fridayTimeValue,
         "saturday":saturdayTimeValue,
         "sunday":sundayTimeValue})
-    .exec(afterSaving);
+    .exec(afterUpdating);
 
-    function afterSaving(err, results) {
+    function afterUpdating(err, results) {
         if(err) console.log(err);
         res.render('myprofiles');
     }

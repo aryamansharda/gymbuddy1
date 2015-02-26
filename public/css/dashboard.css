@@ -18,6 +18,22 @@ body {
 	margin-bottom: 10px;
 }
 
+.modalLabel {
+    font-size: 13px;
+}
+
+.modal-header {
+    background-color: #1abc9c;
+}
+
+.modal-title {
+    color: #ffffff;
+}
+
+.modal-content {
+    background-color: #ecf0f1;
+}
+
 .tftable {
     font-size:12px;
     color:#fbfbfb;

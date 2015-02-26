@@ -14,6 +14,9 @@ exports.viewMatches = function (req, res) {
     .where('username').ne(username)
     .exec(renderProfile);
     
+    /*models.Profile
+    .find({"username":username})*/
+
     function renderProfile(err, profile) {
         res.json(profile);
     }
@@ -29,4 +32,16 @@ exports.viewMatches = function (req, res) {
      }
     
     res.render('dashboard',newData);*/
+}
+
+exports.fetchMatch = function(req, res) {
+    var pid = req.params.pID;
+
+    models.Profile
+    .find({"_id":pid})
+    .exec(renderSelectedMatch);
+
+    function renderSelectedMatch(err, selectedMatch) {
+        res.json(selectedMatch);
+    }
 }

@@ -59,15 +59,17 @@ app.get('/newUser', newUser.registerNewUser);
 app.get('/register', register.registerNewUser);
 app.get('/dashboard', dashboard.viewDashboard);
 app.get('/dashboard/:username', dashboard.viewMatches);
+app.get('/dashboard/:username/:pID', dashboard.fetchMatch);
 app.get('/myprofiles', myprofiles.viewMyprofiles);
 app.get('/myprofiles/:username', myprofiles.viewProfiles);
 app.get('/myprofiles/:username/:pNum', myprofiles.fetchProfile);
 app.get('/addProfile', addProfile.addProfile);
 app.get('/addProfile/:username', addProfile.add);
-app.get('/userdata', userdata.userdata);
+app.get('/userdata/:username', userdata.userdata);
 app.get('/saveProfile', saveProfile.saveProfile);
 app.get('/saveProfile/:username', saveProfile.save);
 app.get('/deleteProfile', deleteProfile.deleteProfile);
+app.get('/deleteProfile/:username', deleteProfile.del);
 app.get('/help',help.viewHelp);
 
 // Example route
