@@ -1,5 +1,7 @@
 'use strict';
 
+var global_username;
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
     initializePage();
@@ -12,7 +14,6 @@ function initializePage() {
     // Add any additional listeners here
     // example: $("#div-id").click(functionToCall);
     $("#logoutButton").click(logout);
-    $("#helpButton").click(help);
     $("#myprofilesButton").click(myProfile);
     
     var name = "gymBuddyUser=";
@@ -25,6 +26,8 @@ function initializePage() {
         if (!c.indexOf(name) == 0)
             window.location.href = "/";
     }
+
+    global_username = username;
     
     function displayMatches(matches) {
         // compose the HTML
@@ -33,7 +36,7 @@ function initializePage() {
         
         for (var i =0; i < matches.length; i++)
         {
-            new_html+='<tr data-toggle="modal" data-target="#MatchInfoModal"><td><center>' +
+            new_html+='<tr onclick=loadMatchToView("' + matches[i]["_id"] + '") data-toggle="modal" data-target="#MatchInfoModal"><td><center>' +
                 matches[i]["username"] +'</center></td><td>';
             
             if (matches[i]["monday"] != "")
@@ -63,6 +66,46 @@ function initializePage() {
 
 }
 
+function loadMatchToView(pID) {
+    $.get('/dashboard/' + global_username + "/" + pID, loadModalWithMatch);
+}
+
+function loadModalWithMatch(result) {
+    var username = result[0].username;
+    var spottingRange = result[0].spottingRange;
+    var spottingSkill = result[0].spottingSkill;
+    var runningRange = result[0].runningRange;
+    var runningSkill = result[0].runningSkill;
+
+    $('#matchedUsername').text("Username: " + username);
+    if (spottingRange != "N/A")
+        $('#matchedSpottingrange').text("Spotting Range: " + spottingRange);
+    if (spottingSkill != "")
+        $('#matchedSpottingskill').text("Spotting Skill: " + spottingSkill);
+    if (runningRange != "N/A")
+        $('#matchedRunningrange').text("Running Range: " + runningRange);
+    if (runningSkill != "")
+        $('#matchedRunningskill').text("Running Skill: " + runningSkill);
+
+    function fetchUserData(other_result) {
+        var name = other_result[0].name;
+        var age = other_result[0].age;
+        var gender = other_result[0].gender;
+        var contact = other_result[0].contact;
+
+        $('#matchedName').text("Name: " + name);
+        $('#matchedAge').text("Age: " + age);
+        $('#matchedGender').text("Gender: " + gender);
+        $('#matchedContact').text("Contact: " + contact);
+        $('#sms').attr("href", "sms:" + contact + " ?body=HCI");
+        $('#sms').text("Send " + name + " a text!");
+    }
+    // issue a GET request
+    $.get('/userdata/' + result[0].username, fetchUserData);
+}
+
+
+
 function logout(e) {
     // Cancel the default action, which prevents the page from reloading
     e.preventDefault();
@@ -75,8 +118,4 @@ function myProfile(e) {
     e.preventDefault();
     window.location.href = "/myprofiles";
 }
-function help(e) {
-    // Cancel the default action, which prevents the page from reloading
-    e.preventDefault();
-    window.location.href = "/help";
-}
+

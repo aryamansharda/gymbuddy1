@@ -6,7 +6,7 @@
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,15 +19,9 @@
     <div class="titleBackground">
         <h3 align="center" class="pageTitle">Dashboard</h3>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="pull-right">
-            <button id="helpButton" class="btn btn-primary">Help</button>
-          </div>
-        </div>
-      </div>  
-      <h3>Your Matches Are...</h3>
+    <div class="container">  
+      <h4>Your Matches</h4>
+      <h6>Tap anywhere on a match to view it.</h6>
       <table class="tftable" border="1">
       </table>
       <br>
@@ -46,8 +40,20 @@
               <h4 class="modal-title" id="MatchInfoModalTitle">Match Information</h4>
             </div>
             <div class="modal-body">
-              <h3>Testing SMS</h3>
-              <a href="sms:4086490550 ?body=HCI">SMS</a>
+              <h3>You have a match!</h3>
+              <label id="matchedUsername" class="modalLabel"></label><br>
+              <label id="matchedSpottingrange" class="modalLabel"></label><br>
+              <label id="matchedSpottingskill" class="modalLabel"></label><br>
+              <label id="matchedRunningrange" class="modalLabel"></label><br>
+              <label id="matchedRunningskill" class="modalLabel"></label><br>
+              <h3>Information</h3>
+              <label id="matchedName" class="modalLabel"></label><br>
+              <label id="matchedAge" class="modalLabel"></label><br>
+              <label id="matchedGender" class="modalLabel"></label><br>
+              <label id="matchedContact" class="modalLabel"></label><br>
+
+              <a id="sms" href=""></a>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -55,7 +61,7 @@
           </div>
         </div>
       </div>
-
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>

@@ -38,18 +38,18 @@ function initializePage() {
     		new_html += '<td>'+ profiles[i].profileName + '</td>';
     		new_html += '<td>';
 
-    		if (profiles[i].spottingRange != "N/A" || profiles[i].spottingSkill != "N/A")
+    		if (profiles[i].spottingRange != "N/A" || profiles[i].spottingSkill != "0")
     			new_html += 'SPOTTER' + '<br>';
     		if (profiles[i].spottingRange != "N/A")
     			new_html += profiles[i].spottingRange + ' (lbs), ';
-    		if (profiles[i].spottingSkill != "N/A")
+    		if (profiles[i].spottingSkill != "0")
     			new_html += profiles[i].spottingSkill + '<br><br>';
 
-    		if (profiles[i].runningRange != "N/A" || profiles[i].runningSkill != "N/A")
+    		if (profiles[i].runningRange != "N/A" || profiles[i].runningSkill != "0")
     			new_html += 'RUNNING' + '<br>';
     		if (profiles[i].runningRange != "N/A")
     			new_html += profiles[i].runningRange + ' (mi), ';
-    		if (profiles[i].runningSkill != "N/A")
+    		if (profiles[i].runningSkill != "0")
     			new_html += profiles[i].runningSkill;
 
     		new_html += '</td><td>';

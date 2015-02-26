@@ -11,6 +11,7 @@ $(document).ready(function() {
 function initializePage() {
     $("#registerButton").click(register);
     $("#loginButton").click(validate);
+    $("#helpButton").click(help);
 }
 
 function register(e) {
@@ -48,3 +49,8 @@ function validatePassword(password) {
     return re.test(password);
 } 
 
+function help(e) {
+    // Cancel the default action, which prevents the page from reloading
+    e.preventDefault();
+    window.location.href = "/help";
+}

@@ -9,10 +9,10 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-    $("#backButton").click(backToDash);
+    $("#backButton").click(backToIndex);
 }
 
-function backToDash(e) {
-	window.location.href = "dashboard";
+function backToIndex(e) {
+	window.location.href = "/";
 }
 

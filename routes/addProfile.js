@@ -38,10 +38,16 @@ exports.addProfile = function(req, res){
 exports.add = function(req, res) {
     var username = req.params.username;
     var profileName = global_profileName;
-    var liftingRangeValue = global_liftingRangeValue; 
-    var liftingSkillValue = global_liftingSkillValue;
+    var liftingRangeValue = global_liftingRangeValue;
+    if (global_liftingSkillValue)
+        var liftingSkillValue = global_liftingSkillValue;
+    else
+        var liftingSkillValue = 0;
     var runningRangeValue = global_runningRangeValue;
-    var runningSkillValue = global_runningSkillValue;
+    if (global_runningSkillValue)
+        var runningSkillValue = global_runningSkillValue;
+    else
+        var runningSkillValue = 0;
     var mondayTimeValue = global_mondayTimeValue;
     var tuesdayTimeValue = global_tuesdayTimeValue;
     var wednesdayTimeValue = global_wednesdayTimeValue;
