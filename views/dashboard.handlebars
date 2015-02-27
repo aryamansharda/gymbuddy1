@@ -22,14 +22,40 @@
     <div class="container">  
       <h4>Your Matches</h4>
       <h6>Tap anywhere on a match to view it.</h6>
-      <table class="tftable" border="1">
+
+      <div class="tabs">
+    <ul class="tab-links">
+        <li class="active"><a href="#tab1">Tab #1</a></li>
+        <li><a href="#tab2">Tab #2</a></li>
+        <li><a href="#tab3">Tab #3</a></li>
+        <li><a href="#tab4">Tab #4</a></li>
+    </ul>
+ 
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+                <table class="tftable" border="1">
+    		   </table>
+        </div>
+ 
+        <div id="tab2" class="tab">
+                 <table class="tftable" border="1">
       </table>
+        </div>
+ 
+        <div id="tab3" class="tab">
+                 <table class="tftable" border="1">
+      			</table>
+        </div>
+    </div>
+</div>
+
       <br>
       <div class="row">
         <div class="col-md-12"><button id="logoutButton" class="btn btn-primary">Log Out</button>
           <span class="pull-right"><button id="myprofilesButton" class="btn btn-primary" pull-right>My Profiles <span aria-hidden="true">&rarr;</span></button></span>
         </div>
       </div>
+
 
       <!-- Match Info Modal -->
       <div class="modal fade" id="MatchInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
